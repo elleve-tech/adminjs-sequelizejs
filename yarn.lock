@@ -63,7 +63,7 @@ __metadata:
     "@types/sinon-chai": ^3.2.9
     "@typescript-eslint/eslint-plugin": ^5.55.0
     "@typescript-eslint/parser": ^5.55.0
-    adminjs: ^6.8.7
+    adminjs: 6.8.7
     chai: ^4.3.7
     escape-regexp: 0.0.1
     eslint: ^8.36.0
@@ -4048,7 +4048,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"adminjs@npm:^6.8.7":
+"adminjs@npm:6.8.7":
   version: 6.8.7
   resolution: "adminjs@npm:6.8.7"
   dependencies:
