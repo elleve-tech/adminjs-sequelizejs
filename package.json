@@ -1,5 +1,6 @@
 {
-  "name": "@adminjs/sequelize",
+  "name": "@elleve-tech/adminjs-sequelize",
+  "formerName": "@adminjs/sequelize",
   "version": "3.0.0",
   "description": "Sequelize adapter for AdminJS",
   "main": "lib/index.js",
