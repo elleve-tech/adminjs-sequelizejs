@@ -49,48 +49,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@adminjs/sequelize@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "@adminjs/sequelize@workspace:."
-  dependencies:
-    "@commitlint/cli": ^17.4.4
-    "@commitlint/config-conventional": ^17.4.4
-    "@semantic-release/git": ^10.0.1
-    "@types/chai": ^4.3.4
-    "@types/mocha": ^10.0.1
-    "@types/node": ^18.15.3
-    "@types/sinon": ^10.0.13
-    "@types/sinon-chai": ^3.2.9
-    "@typescript-eslint/eslint-plugin": ^5.55.0
-    "@typescript-eslint/parser": ^5.55.0
-    adminjs: 6.8.7
-    chai: ^4.3.7
-    escape-regexp: 0.0.1
-    eslint: ^8.36.0
-    eslint-config-airbnb: ^19.0.4
-    eslint-plugin-import: ^2.27.5
-    eslint-plugin-jsx-a11y: ^6.7.1
-    eslint-plugin-react: ^7.32.2
-    eslint-plugin-react-hooks: ^4.6.0
-    flat: ^5.0.2
-    husky: ^8.0.3
-    mocha: ^10.2.0
-    nyc: ^15.1.0
-    pg: ^8.10.0
-    semantic-release: ^20.1.1
-    semantic-release-slack-bot: ^4.0.0
-    sequelize: ">=6.29.3"
-    sequelize-cli: ^6.6.0
-    sinon: ^15.0.2
-    sinon-chai: ^3.7.0
-    ts-node: ^10.9.1
-    typescript: ^4.9.5
-  peerDependencies:
-    adminjs: ">=6.0.0"
-    sequelize: ">=4"
-  languageName: unknown
-  linkType: soft
-
 "@ampproject/remapping@npm:^2.2.0":
   version: 2.2.0
   resolution: "@ampproject/remapping@npm:2.2.0"
@@ -1957,6 +1915,48 @@ __metadata:
   checksum: 5718f267085ed8edb3e7ef210137241775e607ee18b77d95aa5bd7514f47f5019aa2d82d96b3bf342ef7aa890a346fa1044532ff7cc3009e7d24fce3ce6200fa
   languageName: node
   linkType: hard
+
+"@elleve-tech/adminjs-sequelize@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@elleve-tech/adminjs-sequelize@workspace:."
+  dependencies:
+    "@commitlint/cli": ^17.4.4
+    "@commitlint/config-conventional": ^17.4.4
+    "@semantic-release/git": ^10.0.1
+    "@types/chai": ^4.3.4
+    "@types/mocha": ^10.0.1
+    "@types/node": ^18.15.3
+    "@types/sinon": ^10.0.13
+    "@types/sinon-chai": ^3.2.9
+    "@typescript-eslint/eslint-plugin": ^5.55.0
+    "@typescript-eslint/parser": ^5.55.0
+    adminjs: 6.8.7
+    chai: ^4.3.7
+    escape-regexp: 0.0.1
+    eslint: ^8.36.0
+    eslint-config-airbnb: ^19.0.4
+    eslint-plugin-import: ^2.27.5
+    eslint-plugin-jsx-a11y: ^6.7.1
+    eslint-plugin-react: ^7.32.2
+    eslint-plugin-react-hooks: ^4.6.0
+    flat: ^5.0.2
+    husky: ^8.0.3
+    mocha: ^10.2.0
+    nyc: ^15.1.0
+    pg: ^8.10.0
+    semantic-release: ^20.1.1
+    semantic-release-slack-bot: ^4.0.0
+    sequelize: ">=6.29.3"
+    sequelize-cli: ^6.6.0
+    sinon: ^15.0.2
+    sinon-chai: ^3.7.0
+    ts-node: ^10.9.1
+    typescript: ^4.9.5
+  peerDependencies:
+    adminjs: ">=6.0.0"
+    sequelize: ">=4"
+  languageName: unknown
+  linkType: soft
 
 "@emotion/babel-plugin@npm:^11.7.1":
   version: 11.9.2
