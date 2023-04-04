@@ -22,13 +22,16 @@ type FindOptions = {
     sortBy?: string;
     direction?: 'asc' | 'desc';
   };
-}
+};
 
 class Resource extends BaseResource {
-  private SequelizeModel: ModelType<any>
+  private SequelizeModel: ModelType<any>;
 
   static isAdapterFor(rawResource): boolean {
-    return rawResource.sequelize && rawResource.sequelize.constructor.name === 'Sequelize';
+    return (
+      rawResource.sequelize
+      && rawResource.sequelize.constructor.name === 'Sequelize'
+    );
   }
 
   constructor(SequelizeModel: typeof Model) {
@@ -41,13 +44,18 @@ class Resource extends BaseResource {
     // .rawAttributes => sequelize ^5.0.0
     // .attributes => sequelize ^4.0.0
     return ((this.SequelizeModel as any).attributes
-      || (this.SequelizeModel as any).rawAttributes) as Record<string, ModelAttributeColumnOptions>;
+      || (this.SequelizeModel as any).rawAttributes) as Record<
+        string,
+        ModelAttributeColumnOptions
+      >;
   }
 
   databaseName(): string {
-    return (this.SequelizeModel.sequelize as any).options.database
+    return (
+      (this.SequelizeModel.sequelize as any).options.database
       || (this.SequelizeModel.sequelize as any).options.host
-      || 'Sequelize';
+      || 'Sequelize'
+    );
   }
 
   databaseType(): string {
@@ -63,9 +71,9 @@ class Resource extends BaseResource {
   }
 
   properties(): Array<BaseProperty> {
-    return Object.keys(this.rawAttributes()).map((key) => (
-      new Property(this.rawAttributes()[key])
-    ));
+    return Object.keys(this.rawAttributes()).map(
+      (key) => new Property(this.rawAttributes()[key]),
+    );
   }
 
   property(path: string): BaseProperty | null {
@@ -83,19 +91,20 @@ class Resource extends BaseResource {
   }
 
   async count(filter: Filter) {
-    return this.SequelizeModel.count(({
+    return this.SequelizeModel.count({
       where: convertFilter(filter),
-    }));
+    });
   }
 
   primaryKey(): string {
-    return (this.SequelizeModel as any).primaryKeyField || this.SequelizeModel.primaryKeyAttribute;
+    return (
+      (this.SequelizeModel as any).primaryKeyField
+      || this.SequelizeModel.primaryKeyAttribute
+    );
   }
 
   async populate(baseRecords, property): Promise<Array<BaseRecord>> {
-    const ids = baseRecords.map((baseRecord) => (
-      baseRecord.param(property.name())
-    ));
+    const ids = baseRecords.map((baseRecord) => baseRecord.param(property.name()));
     const records = await this.SequelizeModel.findAll({
       where: { [this.primaryKey()]: ids },
     });
@@ -107,7 +116,8 @@ class Resource extends BaseResource {
       const id = baseRecord.param(property.name());
       if (recordsHash[id]) {
         const referenceRecord = new BaseRecord(
-          recordsHash[id].toJSON(), this as unknown as BaseResource,
+          recordsHash[id].toJSON(),
+          this as unknown as BaseResource,
         );
         baseRecord.populated[property.name()] = referenceRecord;
       }
@@ -117,13 +127,12 @@ class Resource extends BaseResource {
 
   async find(filter, { limit = 20, offset = 0, sort = {} }: FindOptions) {
     const { direction, sortBy } = sort;
-    const sequelizeObjects = await this.SequelizeModel
-      .findAll({
-        where: convertFilter(filter),
-        limit,
-        offset,
-        order: [[sortBy as string, (direction || 'asc').toUpperCase()]],
-      });
+    const sequelizeObjects = await this.SequelizeModel.findAll({
+      where: convertFilter(filter),
+      limit,
+      offset,
+      order: [[sortBy as string, (direction || 'asc').toUpperCase()]],
+    });
     return sequelizeObjects.map(
       (sequelizeObject) => new BaseRecord(sequelizeObject.toJSON(), this),
     );
@@ -161,7 +170,7 @@ class Resource extends BaseResource {
     try {
       const record = await this.SequelizeModel.create(unflattedParams);
       return record.toJSON();
-    } catch (error) {
+    } catch (error: any) {
       if (error.name === SEQUELIZE_VALIDATION_ERROR) {
         throw createValidationError(error);
       }

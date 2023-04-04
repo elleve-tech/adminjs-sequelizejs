@@ -9,6 +9,7 @@ import db from '../models/index.js';
 
 chai.use(sinonChai);
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const config = require('../config/config');
 
 describe('Database', () => {
