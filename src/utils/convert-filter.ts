@@ -36,7 +36,7 @@ const convertFilter = (filter) => {
           ...(memo[Op.and] || []),
           {
             [property.name()]: {
-              [Op.iLike as unknown as string]: `%${escape(value)}%`,
+              [Op.iLike as unknown as string]: `${escape(value)}%`,
             },
           },
         ],
