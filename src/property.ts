@@ -1,6 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import { BaseProperty, PropertyType } from 'adminjs';
-import { ModelAttributeColumnOptions } from 'sequelize/types';
+import { ModelAttributeColumnOptions } from 'sequelize';
 
 const TYPES_MAPPING = [
   ['STRING', 'string'],

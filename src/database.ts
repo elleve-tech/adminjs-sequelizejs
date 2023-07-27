@@ -1,7 +1,7 @@
 import { BaseDatabase, BaseResource } from 'adminjs';
 import { Sequelize } from 'sequelize';
 
-import Resource from './resource';
+import Resource from './resource.js';
 
 class Database extends BaseDatabase {
   private sequelize: Sequelize;

@@ -1,18 +1,21 @@
 {
   "name": "@elleve-tech/adminjs-sequelize",
   "formerName": "@adminjs/sequelize",
-  "version": "3.0.3",
+  "version": "4.0.0",
   "packageManager": "yarn@3.5.0",
   "description": "Sequelize adapter for AdminJS",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./lib/index.js",
+      "types": "./lib/index.d.ts"
+    }
+  },
   "scripts": {
     "prepare": "husky install",
     "build": "tsc",
     "dev": "tsc --watch",
-    "test": "mocha -r ts-node/register src/*.spec.ts",
     "check:all": "yarn build && yarn test && yarn lint",
-    "cover": "NODE_ENV=test ./node_modules/nyc/bin/nyc.js --reporter=html -x=spec -x=coverage  --all=true npm test",
     "sequelize": "sequelize",
     "lint": "eslint ./src/**/*.ts",
     "release": "semantic-release"
@@ -24,8 +27,8 @@
   "author": "Wojciech Krysiak",
   "license": "MIT",
   "peerDependencies": {
-    "adminjs": ">=6.0.0",
-    "sequelize": ">=4"
+    "adminjs": "^7.0.0",
+    "sequelize": ">=6"
   },
   "husky": {
     "hooks": {
@@ -43,7 +46,7 @@
     "@types/sinon-chai": "^3.2.9",
     "@typescript-eslint/eslint-plugin": "^5.55.0",
     "@typescript-eslint/parser": "^5.55.0",
-    "adminjs": "6.8.7",
+    "adminjs": "^7.0.0",
     "chai": "^4.3.7",
     "eslint": "^8.36.0",
     "eslint-config-airbnb": "^19.0.4",
@@ -57,7 +60,7 @@
     "pg": "^8.10.0",
     "semantic-release": "^20.1.1",
     "semantic-release-slack-bot": "^4.0.0",
-    "sequelize": ">=6.29.3",
+    "sequelize": "^6.29.3",
     "sequelize-cli": "^6.6.0",
     "sinon": "^15.0.2",
     "sinon-chai": "^3.7.0",
